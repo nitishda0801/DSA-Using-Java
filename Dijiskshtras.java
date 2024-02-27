@@ -1,6 +1,13 @@
 import java.util.ArrayList;
 import java.util.PriorityQueue;
 
+
+/*Note:
+---> It  not work on negative weight of edges.it may not give the shortest path on negative weight of edges.
+--->Time Complexity:  O(E*log(V)); --> E-- for iterating all edges and log(V)-- for priority queue to find shortest weight
+
+ */
+
 public class Dijiskshtras {//Time Complexity: O(E*log(V));
 
 

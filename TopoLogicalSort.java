@@ -49,6 +49,7 @@ public class TopoLogicalSort {
     {
         int indeg[]=new int[graph.length];
         findindeg(graph,indeg);
+        @SuppressWarnings("rawtypes")
         Queue<Integer> q=new LinkedList();
         for(int i=0;i<indeg.length;i++)
         {
