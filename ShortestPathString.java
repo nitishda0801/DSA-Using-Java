@@ -1,6 +1,6 @@
 class ShortestPathString
 {
-    public static int findshortestdistence(String string)
+    public static float findshortestdistence(String string)
     {
         int x=0,y=0;
         for(int i=0;i<string.length();i++)
@@ -24,7 +24,7 @@ class ShortestPathString
                 y--;
             }
         }
-        int distance =(int)Math.sqrt(x*x+y*y);
+        float distance =(float)Math.sqrt(x*x+y*y);
         return distance;
     }
 

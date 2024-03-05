@@ -5,6 +5,13 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "type": "java",
+            "name": "StringCompression",
+            "request": "launch",
+            "mainClass": "StringCompression",
+            "projectName": "DSA_using_Java_db8a28a3"
+        },
+        {
             "name": "Java",
             "type": "java",
             "request": "launch",
