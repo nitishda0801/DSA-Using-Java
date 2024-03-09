@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "TcsCheckSubSequence",
+            "request": "launch",
+            "mainClass": "TcsCheckSubSequence",
+            "projectName": "DSA_using_Java_db8a28a3"
+        },
+        {
+            "type": "java",
             "name": "TcsPermutation",
             "request": "launch",
             "mainClass": "TcsPermutation",
