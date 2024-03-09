@@ -6,6 +6,27 @@
     "configurations": [
         {
             "type": "java",
+            "name": "TcsPermutation",
+            "request": "launch",
+            "mainClass": "TcsPermutation",
+            "projectName": "DSA_using_Java_db8a28a3"
+        },
+        {
+            "type": "java",
+            "name": "TilingProblem",
+            "request": "launch",
+            "mainClass": "TilingProblem",
+            "projectName": "DSA_using_Java_db8a28a3"
+        },
+        {
+            "type": "java",
+            "name": "FindPowToXandN",
+            "request": "launch",
+            "mainClass": "FindPowToXandN",
+            "projectName": "DSA_using_Java_db8a28a3"
+        },
+        {
+            "type": "java",
             "name": "StringCompression",
             "request": "launch",
             "mainClass": "StringCompression",
