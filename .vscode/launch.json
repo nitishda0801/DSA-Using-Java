@@ -6,6 +6,83 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Palindromic",
+            "request": "launch",
+            "mainClass": "Pattern_problems.Palindromic",
+            "projectName": "DSA_using_Java_db8a28a3"
+        },
+        {
+            "type": "java",
+            "name": "Pyramid",
+            "request": "launch",
+            "mainClass": "Pattern_problems.Pyramid",
+            "projectName": "DSA_using_Java_db8a28a3"
+        },
+        {
+            "type": "java",
+            "name": "Diamond",
+            "request": "launch",
+            "mainClass": "Pattern_problems.Diamond",
+            "projectName": "DSA_using_Java_db8a28a3"
+        },
+        {
+            "type": "java",
+            "name": "HollowRhombus",
+            "request": "launch",
+            "mainClass": "Pattern_problems.HollowRhombus",
+            "projectName": "DSA_using_Java_db8a28a3"
+        },
+        {
+            "type": "java",
+            "name": "Rhombus",
+            "request": "launch",
+            "mainClass": "Pattern_problems.Rhombus",
+            "projectName": "DSA_using_Java_db8a28a3"
+        },
+        {
+            "type": "java",
+            "name": "Butterfly",
+            "request": "launch",
+            "mainClass": "Pattern_problems.Butterfly",
+            "projectName": "DSA_using_Java_db8a28a3"
+        },
+        {
+            "type": "java",
+            "name": "ZeroOneTraingle",
+            "request": "launch",
+            "mainClass": "Pattern_problems.ZeroOneTraingle",
+            "projectName": "DSA_using_Java_db8a28a3"
+        },
+        {
+            "type": "java",
+            "name": "FloydsTriangle",
+            "request": "launch",
+            "mainClass": "Pattern_problems.FloydsTriangle",
+            "projectName": "DSA_using_Java_db8a28a3"
+        },
+        {
+            "type": "java",
+            "name": "InvertedPyramidNumber",
+            "request": "launch",
+            "mainClass": "Pattern_problems.InvertedPyramidNumber",
+            "projectName": "DSA_using_Java_db8a28a3"
+        },
+        {
+            "type": "java",
+            "name": "InvertedPyramid",
+            "request": "launch",
+            "mainClass": "Pattern_problems.InvertedPyramid",
+            "projectName": "DSA_using_Java_db8a28a3"
+        },
+        {
+            "type": "java",
+            "name": "HollowRectangle",
+            "request": "launch",
+            "mainClass": "Pattern_problems.HollowRectangle",
+            "projectName": "DSA_using_Java_db8a28a3"
+        },
+        {
+            "type": "java",
             "name": "TcsCheckSubSequence",
             "request": "launch",
             "mainClass": "TcsCheckSubSequence",

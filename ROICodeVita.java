@@ -19,7 +19,6 @@ public static int [] CalculatePL(int n,int stock[][],int m,int price[][],int tim
         }
     }
 
-
     return new int[]{rez,unrez};
 }
 
@@ -94,7 +93,7 @@ output:0 60
 
 
  /*
-  * ROI
+ROI
 Problem Description
 You must be aware of the concept of the stock portfolio. A stock portfolio is a collection of stock(s) that you invest in to make a profit.
 
