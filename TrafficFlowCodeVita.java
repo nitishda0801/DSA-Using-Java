@@ -2,8 +2,60 @@ import java.util.Scanner;
 
 public class TrafficFlowCodeVita {
 
+  static int minTrafficFlow1(int[][] grid, int startX, int startY, int endX, int endY) {
+    //Brute Force: Recursive solution, Time: O(2^(N+M), Space: O(N+M))
+    // Base case: If Srihan is out of bounds or if there's no path to reach the destination
+    if (startX < 1 || startY < 1 || startX > grid.length || startY > grid[0].length) {
+        return Integer.MAX_VALUE; // Return a large value to indicate no path
+    }
+    if (startX == endX && startY == endY) {
+        return grid[endX - 1][endY - 1];
+    }
+    
+    // Move right
+    int right = minTrafficFlow(grid, startX, startY + 1, endX, endY);
+    // Move down
+    int down = minTrafficFlow(grid, startX + 1, startY, endX, endY);
+    
+    // Choose the minimum path
+    return grid[startX - 1][startY - 1] + Math.min(right, down);
+}
+
+  static int minTrafficFlow(int[][] grid, int startX, int startY, int endX, int endY) {
+    //Time O(N*M) and Space:(M)
+    int n = grid.length;
+    int m = grid[0].length;
+
+    int[] dp = new int[m];
+    dp[startY - 1] = grid[startX - 1][startY - 1];
+
+    // Fill the first row
+    for (int j = startY; j < m; j++) {
+        dp[j] = dp[j - 1] + grid[startX - 1][j];
+    }
+
+    // Fill rest of the grid
+    for (int i = startX; i < n; i++) {
+        int[] newRow = new int[m];
+        newRow[startY - 1] = dp[startY - 1] + grid[i][startY - 1];
+
+        for (int j = startY; j < m; j++) {
+            newRow[j] = Math.min(newRow[j - 1], dp[j]) + grid[i][j];
+        }
+
+        dp = newRow;
+    }
+
+    // If there's no path to reach the destination
+    if (dp[endY - 1] == 0) {
+        return -1;
+    }
+
+    return dp[endY - 1];
+}
+
 public static int findBestPath(int n,int m,int grid[][],int currow,int curcol,int destrow,int destcol)
-{
+{    //Time O(N*M) and Space:(N*M)
     int dp[][]=new int[n][m];
     dp[currow][curcol]=grid[currow][curcol];
     for(int i=currow+1;i<n;i++)
@@ -45,6 +97,14 @@ public static int findBestPath(int n,int m,int grid[][],int currow,int curcol,in
         int destrow=sc.nextInt();
         int desctcol=sc.nextInt();
         System.out.println(findBestPath(n,m,grid,startrow-1,startcol-1,destrow-1,desctcol-1));
+        System.out.println(minTrafficFlow(grid,startrow,startcol,destrow,desctcol));
+
+        int result = minTrafficFlow(grid, startrow, startcol, destrow, desctcol);
+        if (result == Integer.MAX_VALUE) {
+            System.out.println("-1");
+        } else {
+            System.out.println(result);
+        }
     }
 }
 
@@ -185,7 +245,7 @@ class TrafficFlow{
       {
         dp[i][j]=grid[i][j]+(int)Math.min(dp[i-1][j],dp[i][j-1]);//updating the traffic value at i,j position. 
       }
-    }  
+    }
     if(dp[destRow][destCol]==0)
       return -1;
     return dp[destRow][destCol];//answer at destination position. 
