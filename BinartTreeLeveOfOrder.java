@@ -26,8 +26,6 @@ public class BinartTreeLeveOfOrder {
             newNode.right=buildTree(root);
             return newNode;
 
-            
-            //return root;
         }
     }
     static void levelOrder(Node root)
@@ -81,3 +79,14 @@ public class BinartTreeLeveOfOrder {
         }
     }
 }
+/*
+ * Enter the size of node:
+
+13
+Enter the node:
+
+1 2 4 -1 -1 5 -1 -1 3 -1 6 -1 -1
+1
+2 3
+4 5 6
+ */

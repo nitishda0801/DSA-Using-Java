@@ -41,7 +41,7 @@ public class Butterfly {
     }
     public static void main(String[] args) {
         int n=5;
-        butterflypattern(5);
+       // butterflypattern(5);
         for(int i=1;i<=n;i++)
         {
             for(int j=1;j<=n;j++)

@@ -118,10 +118,6 @@ public class BellmanFordAlg {
         {
             System.err.print(dist[i]+ " ");
         }
-
-
-
-
     }
     */
 
