@@ -40,13 +40,13 @@ public class TcsCheckSubSequence {
         while (i<s1.length() && j<s2.length()) {
             char c1=s1.charAt(i);
             char c2=s2.charAt(j);
-            if(c1==c2){
+            if(c1==c2)
+            {
                 i++;j++;
             }
             else{
                 j++;
             }
-            
         }
         if(i>=s1.length()) return true;
         return false;

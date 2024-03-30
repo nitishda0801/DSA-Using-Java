@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class AllPathFromStoTInGraph { //Time Complexity: V^V; Exponential time complexity
+public class AllPathFromStoTInGraphDirectedGraph { //Time Complexity: V^V; Exponential time complexity
     class Edge{
         int src;
         int dest;
@@ -27,7 +27,7 @@ public class AllPathFromStoTInGraph { //Time Complexity: V^V; Exponential time c
 
 public static void createGraph(ArrayList<Edge>[] graph)
     {
-        AllPathFromStoTInGraph tp=new AllPathFromStoTInGraph();
+        AllPathFromStoTInGraphDirectedGraph tp=new AllPathFromStoTInGraphDirectedGraph();
         for(int i=0;i<graph.length;i++)
         {
             graph[i]=new ArrayList<>();
@@ -41,12 +41,9 @@ public static void createGraph(ArrayList<Edge>[] graph)
 
         graph[4].add(tp.new Edge(4, 0));
         graph[4].add(tp.new Edge(4, 1));
-
         
         graph[5].add(tp.new Edge(5, 0));
         graph[5].add(tp.new Edge(5, 2));
-
-
 
     }
 
@@ -56,8 +53,5 @@ public static void createGraph(ArrayList<Edge>[] graph)
         createGraph(graph);
         int src=5,dest=1;
         AllPath(graph, src, dest,"");
-
-
-
     }
 }

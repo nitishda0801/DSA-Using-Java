@@ -1,5 +1,7 @@
-import java.util.*;
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Stack;
 public class TopoLogicalSort {
 
     class Edge{
@@ -9,7 +11,6 @@ public class TopoLogicalSort {
         {
             this.src=s;
             this.dest=d;
-
         }
     }
     public static void createGraph(ArrayList<Edge>[] graph)
@@ -34,6 +35,18 @@ public class TopoLogicalSort {
 
 
     }
+    public static void toptlogicalSortDFS(ArrayList<Edge> graph[],int src,boolean vis[], Stack<Integer> st)
+    {
+
+        vis[src]=true;
+        for(int i=0;i<graph[src].size();i++)
+        {
+            Edge e=graph[src].get(i);
+            if(!vis[e.dest])
+            toptlogicalSortDFS(graph, e.dest, vis, st);
+        }
+        st.push(src);
+    }
     public static void findindeg(ArrayList<Edge>grap[],int indeg[])
     {
         for(int i=0;i<grap.length;i++)
@@ -49,11 +62,10 @@ public class TopoLogicalSort {
     {
         int indeg[]=new int[graph.length];
         findindeg(graph,indeg);
-        @SuppressWarnings("rawtypes")
         Queue<Integer> q=new LinkedList();
         for(int i=0;i<indeg.length;i++)
         {
-            if(indeg[i]==0)//if indegree is zero than add index to queue.
+            if(indeg[i]==0) //if indegree is zero than add index to queue.
             q.offer(i);
         }
         while (!q.isEmpty()) {
@@ -77,6 +89,18 @@ public class TopoLogicalSort {
         ArrayList<Edge>[] graph=new ArrayList[V];
         createGraph(graph);
         tpsort(graph);
+        Stack<Integer> st=new Stack<>();
+        boolean vis[]=new boolean[V];
+        for(int i=0;i<V;i++)
+        {
+            if(!vis[i])
+            {
+                toptlogicalSortDFS(graph,i,vis,st);
+            }
+        }
+        while(!st.isEmpty())
+        {
+            System.err.print(st.pop()+" ");
+        }
     }
-
 }

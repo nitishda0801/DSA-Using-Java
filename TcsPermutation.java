@@ -1,5 +1,7 @@
-import java.util.ArrayList;
+
+import java.util.*;
 import java.util.Scanner;
+import java.util.Set;
 
 public class TcsPermutation {
     public static boolean isValid(String str)
@@ -21,7 +23,7 @@ public class TcsPermutation {
         ch[i]=temp;
         
     }
-    public static void permute(char ch[],int id,int len,ArrayList<String> list)
+    public static void permute(char ch[],int id,int len,Set<String> list)
     {
         if(id==len)
         {
@@ -42,23 +44,31 @@ public class TcsPermutation {
         int b=sc.nextInt();
         sc.close();
         StringBuilder sb=new StringBuilder();
-        while(r>0)
-        {
-            sb.append("r");
-            r--;
-        }
-        while (g>0) {
-            sb.append("g");
-            g--;
-        }
-        while (b>0) {
-            sb.append("b");
-            b--;
+        String r1="r".repeat(r);
+        String g1="g".repeat(g);
+        String b1="b".repeat(b);
+        sb.append(r1);
+        sb.append(g1);
+        sb.append(b1);
+
+        // while(r>0)
+        // {
+        //     sb.append("r");
+        //     r--;
+        // }
+        // while (g>0) {
+        //     sb.append("g");
+        //     g--;
+        // }
+        // while (b>0) {
+        //     sb.append("b");
+        //     b--;
             
-        }
+        // }
+
         char str []=sb.toString().toCharArray();
         int c=0;
-       ArrayList<String> list =new ArrayList<>();
+       Set<String> list =new HashSet<>();
        permute(str,0,str.length-1,list);
        System.err.println(list);
         for(String s:list)

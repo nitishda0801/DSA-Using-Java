@@ -13,7 +13,6 @@ public static void merge(int a[],int s,int mid,int e)
     int j=mid+1;
     int k=0;
     int temp[]=new int[e-s+1];
-
     while(i<=mid && j<=e)
     {
         if(a[i]>a[j])
@@ -29,17 +28,15 @@ public static void merge(int a[],int s,int mid,int e)
     }
     while (i<=mid) {
         temp[k++]=a[i++];
-        
     }
     while (j<=e) {
         temp[k++]=a[j++];
     }
-    for(k=0,i=s;k<temp.length;k++,i++)
+    i=s;
+    for(k=0;k<temp.length;k++)
     {
-        a[i]=temp[k];
+        a[i++]=temp[k];
     }
-
-
 }
 
 public static void quickSort(int a[],int s,int e)
@@ -137,12 +134,12 @@ public static void selectionSort(int a[])
     for(int i=0;i<a.length-1;i++)
     {
         int min=i;
-        for(int j=i;j<a.length-1-i;j++)
+        for(int j=i+1;j<a.length;j++)
         {
-            if(a[i]<a[j])
+            if(a[min]>a[j])
             {
                 min=j;
-            }
+            } 
         }
         int temp=a[min];
         a[min]=a[i];
@@ -161,6 +158,7 @@ public static void selectionSort(int a[])
         // insertionSort(a);
         // countingSort(a);
         bubbleSort(a);
+        //selectionSort(a);
         for(int i=0;i<n;i++)
         System.err.print(a[i]+" ");
     }

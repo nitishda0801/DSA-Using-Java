@@ -1,8 +1,9 @@
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class DigitVowelCountTCS {
-    static HashMap<Integer,String>map=new HashMap<>();
+    static Map<Integer,String>map=new HashMap<>();
     static int CountVowels(String str)
     {
         int c=0;
@@ -105,7 +106,7 @@ public class DigitVowelCountTCS {
 }
 
 /*
- * 
+ *
  * Example:
 Example 1
 
