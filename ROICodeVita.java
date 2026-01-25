@@ -1,98 +1,4 @@
-import java.util.Scanner;
-
-public class ROICodeVita {
-
-public static int [] CalculatePL(int n,int stock[][],int m,int price[][],int timeInstance)
-{
-    int rez=0;
-    int unrez=0;
-    for(int i=0;i<n;i++)
-    {
-        if(stock[i][2]<=timeInstance && stock[i][2]!=0)
-        {
-            rez+=(price[i][stock[i][2]-1]-price[i][stock[i][1]-1])*stock[i][0];
-        }
-        else
-        if(stock[i][1]<=timeInstance)
-        {
-            unrez+=(price[i][timeInstance-1]-price[i][stock[i][1]-1])*stock[i][0];
-        }
-    }
-
-    return new int[]{rez,unrez};
-}
-
-
-    public static void main(String[] args) {
-        Scanner sc=new Scanner(System.in);
-        int n=sc.nextInt();//number of stock
-        int stocks[][]=new int[n][3];
-        for(int i=0;i<n;i++)
-        {
-            stocks[i][0]=sc.nextInt();//share count bought;
-            stocks[i][1]=sc.nextInt();//day of bought;
-            stocks[i][2]=sc.nextInt();//day sale;
-
-        }
-        int m=sc.nextInt();//number of day of stock price given;
-        int prices[][]=new int [n][m];
-        for(int i=0;i<n;i++)
-        {
-            //ith stock price details of m-days
-            for(int j=0;j<m;j++)
-            {
-                prices[i][j]=sc.nextInt();
-            }
-        }
-        int timeInstance=sc.nextInt();
-        int ans[]=CalculatePL(n,stocks,m,prices,timeInstance);
-        System.out.println(ans[0]+" "+ ans[1]);
-    }
-}
-
 /*
-
-testcase1:
-3
-10 4 6
-10 1 11
-100 6 0
-22
-113 115 112 113 115 112 113 115 112 113 115 112 113 115 112 113 115 112 113 115 112 117
-52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73
-101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122
-10
-
-o/p: -10 490
-
-
-testcase2
-3
-10 4 20
-10 1 11
-100 6 0
-22
-113 115 112 113 115 112 113 115 112 113 115 112 113 115 112 113 115 112 113 115 112 117
-52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73
-101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122
-20
-o/p:120 1400
-
-testcase3:
-3
-10 4 20
-10 1 11
-100 6 0
-22
-113 115 112 113 115 112 113 115 112 113 115 112 113 115 112 113 115 112 113 115 112 117
-52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73
-101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122
-5
-output:0 60
- */
-
-
- /*
 ROI
 Problem Description
 You must be aware of the concept of the stock portfolio. A stock portfolio is a collection of stock(s) that you invest in to make a profit.
@@ -247,3 +153,99 @@ We are interested in P/L position at the end of 10th day
 After computation, we know that Stock 1, Stock 2 and Stock3 have been bought. Stock 1 have Sell transaction at day 6. Substituting prices i.e. buy price and the market price at their respective sell date we understand he profit is [(112 - 113) * 10] = -10. Hence realized P/L is -10. Stock 3 and Stock 2 have no sell transaction on or before Day 10 therefore we realize that the unrealized profit is [ (61 - 52) * 10 + (110 - 106) *100 ] = 490.
 
   */
+
+import java.util.Scanner;
+
+public class ROICodeVita {
+
+public static int [] CalculatePL(int n,int stock[][],int m,int price[][],int timeInstance)
+{
+    int rez=0;
+    int unrez=0;
+    for(int i=0;i<n;i++)
+    {
+        if(stock[i][2]<=timeInstance && stock[i][2]!=0)
+        {
+            rez+=(price[i][stock[i][2]-1]-price[i][stock[i][1]-1])*stock[i][0];
+        }
+        else
+        if(stock[i][1]<=timeInstance)
+        {
+            unrez+=(price[i][timeInstance-1]-price[i][stock[i][1]-1])*stock[i][0];
+        }
+    }
+
+    return new int[]{rez,unrez};
+}
+
+
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();//number of stock
+        int stocks[][]=new int[n][3];
+        for(int i=0;i<n;i++)
+        {
+            stocks[i][0]=sc.nextInt();//share count bought;
+            stocks[i][1]=sc.nextInt();//day of bought;
+            stocks[i][2]=sc.nextInt();//day sale;
+
+        }
+        int m=sc.nextInt();//number of day of stock price given;
+        int prices[][]=new int [n][m];
+        for(int i=0;i<n;i++)
+        {
+            //ith stock price details of m-days
+            for(int j=0;j<m;j++)
+            {
+                prices[i][j]=sc.nextInt();
+            }
+        }
+        int timeInstance=sc.nextInt();
+        int ans[]=CalculatePL(n,stocks,m,prices,timeInstance);
+        System.out.println(ans[0]+" "+ ans[1]);
+    }
+}
+
+/*
+
+testcase1:
+3
+10 4 6
+10 1 11
+100 6 0
+22
+113 115 112 113 115 112 113 115 112 113 115 112 113 115 112 113 115 112 113 115 112 117
+52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73
+101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122
+10
+
+o/p: -10 490
+
+
+testcase2
+3
+10 4 20
+10 1 11
+100 6 0
+22
+113 115 112 113 115 112 113 115 112 113 115 112 113 115 112 113 115 112 113 115 112 117
+52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73
+101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122
+20
+o/p:120 1400
+
+testcase3:
+3
+10 4 20
+10 1 11
+100 6 0
+22
+113 115 112 113 115 112 113 115 112 113 115 112 113 115 112 113 115 112 113 115 112 117
+52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73
+101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122
+5
+output:0 60
+ */
+
+
+
