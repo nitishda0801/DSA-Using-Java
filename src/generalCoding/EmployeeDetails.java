@@ -19,12 +19,12 @@ public class EmployeeDetails {
                 {"emp89","Sale","23500"},
                 {"emp89","Sale","20000"}
         };
-
-        findDeprtInfo(emp);
+        int topN = 1;
+        findDeprtInfo(emp,topN);
 
     }
 
-    private static void findDeprtInfo(String[][] emp) {
+    private static void findDeprtInfo(String[][] emp,int topN) {
         Map<String, List<String>> empMap = new HashMap<>();
         System.out.println("Total employe: "+emp.length);
 //        for(int i=0;i<emp.length;i++){
@@ -42,7 +42,7 @@ public class EmployeeDetails {
             PriorityQueue<Integer> pq = new PriorityQueue<>();
             for(String salary:empMap.get(key)){
                 pq.offer(Integer.valueOf(salary));
-                if(pq.size()>3){
+                if(pq.size()>topN){
                     pq.poll();
                 }
             }
